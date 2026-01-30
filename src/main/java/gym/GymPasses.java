@@ -1,4 +1,4 @@
-package a4_40321098;
+package gym;
 
 import java.util.Objects;
 
@@ -12,32 +12,21 @@ import java.util.Objects;
  */
 public class GymPasses {
 
-    // ====================================================================
-    // Instance variables – counts of each pass type (non-negative by design)
-    // ====================================================================
-    private int regular = 0; // Number of Regular passes ($7 each)
-    private int student = 0; // Number of Student passes ($5 each)
-    private int senior = 0; // Number of Senior passes ($4 each)
-    private int weekend = 0; // Number of Weekend passes ($12 each)
-    private int weekly = 0; // Number of Weekly passes ($42 each)
+    private int regular = 0;
+    private int student = 0;
+    private int senior = 0;
+    private int weekend = 0;
+    private int weekly = 0;
 
-    // ====================================================================
-    // Public constants – fixed price for each pass type (shared by all instances)
-    // ====================================================================
     public static final int PRICE_REGULAR = 7;
     public static final int PRICE_STUDENT = 5;
     public static final int PRICE_SENIOR = 4;
     public static final int PRICE_WEEKEND = 12;
     public static final int PRICE_WEEKLY = 42;
 
-    // ====================================================================
-    // Constructors
-    // ====================================================================
-    // Default constructor – creates an empty set of passes (all counts = 0)
     public GymPasses() {
     }
 
-    // Parameterized constructor – initializes counts with given values
     public GymPasses(int regular, int student, int senior, int weekend, int weekly) {
         this.regular = regular;
         this.student = student;
@@ -46,9 +35,10 @@ public class GymPasses {
         this.weekly = weekly;
     }
 
-    // ====================================================================
-    // Simple getters – return the current count of each pass type
-    // ====================================================================
+    public GymPasses(GymPasses x) {
+        this.copy(x);
+    }
+
     public int getRegular() {
         return regular;
     }
@@ -69,9 +59,6 @@ public class GymPasses {
         return weekly;
     }
 
-    // ====================================================================
-    // Static price getters – allow price lookup without an instance
-    // ====================================================================
     public static int getPriceRegular() {
         return PRICE_REGULAR;
     }
@@ -92,9 +79,6 @@ public class GymPasses {
         return PRICE_WEEKLY;
     }
 
-    // ====================================================================
-    // Simple setters – update the count of a specific pass type
-    // ====================================================================
     public void setRegular(int regular) {
         this.regular = regular;
     }
@@ -115,9 +99,6 @@ public class GymPasses {
         this.weekly = weekly;
     }
 
-    // ====================================================================
-    // Utility: copy the counts from another GymPasses object
-    // ====================================================================
     public void copy(GymPasses x) {
         if (x != null) {
             this.setRegular(x.getRegular());
@@ -128,16 +109,6 @@ public class GymPasses {
         }
     }
 
-    // ====================================================================
-    // Copy constructor – creates a new object that is an exact duplicate
-    // ====================================================================
-    public GymPasses(GymPasses x) {
-        this.copy(x);
-    }
-
-    // ====================================================================
-    // Add more passes to the current counts (used by menu option 9)
-    // ====================================================================
     public void addGymPasses(int regular, int student, int senior, int weekend, int weekly) {
         this.regular += regular;
         this.student += student;
@@ -146,9 +117,6 @@ public class GymPasses {
         this.weekly += weekly;
     }
 
-    // ====================================================================
-    // Calculate and return the total monetary value of all passes
-    // ====================================================================
     public int gymPassesTotal() {
         return getRegular() * PRICE_REGULAR
                 + getStudent() * PRICE_STUDENT
@@ -157,10 +125,6 @@ public class GymPasses {
                 + getWeekly() * PRICE_WEEKLY;
     }
 
-    // ====================================================================
-    // toString – returns the exact format required by the driver program
-    // Example: "10 x $7 + 4 x $5 + 1 x $4 + 1 x $12 + 1 x $42"
-    // ====================================================================
     @Override
     public String toString() {
         return getRegular() + " x $" + PRICE_REGULAR + " + "
@@ -170,10 +134,6 @@ public class GymPasses {
                 + getWeekly() + " x $" + PRICE_WEEKLY;
     }
 
-    // ====================================================================
-    // Equality check – two GymPasses objects are equal if every count matches
-    // (Used by Reception.isEqualAmount and menu option 4)
-    // ====================================================================
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

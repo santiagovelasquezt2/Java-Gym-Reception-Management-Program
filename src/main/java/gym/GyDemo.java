@@ -1,29 +1,4 @@
-package a4_40321098;
-
-// --------------------------------------------------------------------
-// Assignment 4 – Fit Gym @Concordia University Management System
-// Written by: Santiago Velasquez Talbott 40321098
-// For COMP 248 Section P – Fall 2025
-// --------------------------------------------------------------------
-//
-// Program Description:
-// This driver program simulates a gym management system with multiple reception desks.
-// Each Reception manages:
-//   • GymPasses: counts of five pass types (Regular $7, Student $5, Senior $4, Weekend $12, Weekly $42)
-//   • GymCard memberships: individual cards with type, holder name, and expiry date (day/month)
-//
-// The program offers a menu-driven interface that allows users to:
-//   • View all receptions or a single one
-//   • Find receptions with the same total monetary value of passes
-//   • Find receptions with identical pass type distributions
-//   • Find receptions that are fully equivalent (same value + same number of membership cards)
-//   • Add, remove, or update membership cards
-//   • Add additional gym passes to any reception
-//
-// Five receptions are preloaded with carefully chosen test data to satisfy all assignment
-// constraints (same totals, different distributions, zero cards, etc.) and to fully demonstrate
-// every menu option.
-// --------------------------------------------------------------------
+package gym;
 
 import java.util.Scanner;
 
